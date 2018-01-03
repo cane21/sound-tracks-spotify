@@ -4,6 +4,7 @@ import { FormGroup, FormControl, InputGroup, Glyphicon } from "react-bootstrap";
 import Profile from "./Profile";
 import Gallery from "./Gallery";
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ class App extends Component {
     console.log("this.state", this.state);
 
     //my access token from spotify
-    const ACCESS_TOKEN = "BQBqAydUya-BHosEXyb3XQsgitAFwP4xlEIgL0-STNKe-3Rl01j5tJMLovuxMmMkLIg0pPy0xnLzAg25MKbgZikqx7zrBBw5r735oMgGGDIjkPYzbHq8Yyb2-8NstNBucGaQ_C4fSP4ZEVEbQTkwm3tPFoxD41VRwBo1DQ&refresh_token=AQDypp4zuKvmYHTdgyAtsJMgd6j1NXeAX6EFCxVUZbVuT_EbctBNJ-s6fRUjMD6zH_aKOE_JpVqdzn-m_DhAVvuo0pR-WYLFTh_GdYpoqbvsB72xlZFy0UNzGeLBFPYbnJs  ";
+    const ACCESS_TOKEN = "";
     const BASE_URL = "https://api.spotify.com/v1/search?";
     const ALBUM_URL = "https://api.spotify.com/v1/artists/";
 
@@ -37,7 +38,7 @@ class App extends Component {
     fetch(FETCH_URL, myOptions)
       .then(response => response.json())
       .then(json => {
-        const artist = json.artists.item[0];
+        const artist = json.artists.items[0];
         this.setState({ artist });
 
         FETCH_URL = `${ALBUM_URL}/${artist.id}/top-tracks?country=US&`;
@@ -97,6 +98,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
