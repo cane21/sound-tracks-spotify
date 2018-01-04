@@ -17,11 +17,12 @@ class App extends Component {
 
   search() {
     console.log('this.state', this.state);
+
+      //my access token spotify
+    const ACCESS_TOKEN = '';
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const ALBUM_URL = 'https://api.spotify.com/v1/artist/';
 
-    //Access token spotify
-    const ACCESS_TOKEN = '';
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     console.log('FETCH_URL', FETCH_URL);
 
