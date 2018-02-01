@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
 
 class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playingUrl: "",
+      playingUrl: '',
       audio: null,
       playing: false
-    };
+    }
   }
 
   playAudio(previewUrl) {
@@ -19,7 +19,7 @@ class Gallery extends Component {
         playing: true,
         playingUrl: previewUrl,
         audio
-      });
+      })
     } else {
       if (this.state.playingUrl === previewUrl) {
         this.state.audio.pause();
@@ -33,7 +33,7 @@ class Gallery extends Component {
           playing: true,
           playingUrl: previewUrl,
           audio
-        });
+        })
       }
     }
   }
@@ -53,21 +53,20 @@ class Gallery extends Component {
               <img src={trackImg} className="track-img" alt="track" />
               <div className="track-play">
                 <div className="track-play-inner">
-                  {this.state.playingUrl === track.preview_url 
-                  ? (
-                    <span>||</span>
-                  ) 
-                  : (
-                    <span>&#9654;</span>
-                  )}
+                  {
+                    this.state.playingUrl === track.preview_url 
+                      ? <span>||</span>
+                      : <span>&#9654;</span>
+                  }
                 </div>
               </div>
               <p className="track-text">{track.name}</p>
             </div>
-          );
-        })}
+          )
+         }
+       )}
       </div>
-    );
+    )
   }
 }
 
